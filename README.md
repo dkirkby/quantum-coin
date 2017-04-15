@@ -7,7 +7,7 @@ This is a simulation of a coin that spins indefinitely (rather than a flipped co
 
 Initial development by [David Kirkby](https://github.com/dkirkby) for the 2015 "Quantum Physics" course (113A) at the [University of California, Irvine](https://uci.edu).
 
-This is an open source project, released under an [MIT license](https://dkirkby.github.io/quantum-coin/LICENSE.txt).
+This is an open source project, released under an [MIT license](https://dkirkby.github.io/quantum-coin/LICENSE.txt), that builds on other open source projects: [bootstrap](https://getbootstrap.com/), [jquery](https://jquery.com/), [d3js](https://d3js.org/).  Suggestions for improvement are welcome: please [create an issue](https://github.com/dkirkby/quantum-coin/issues) to start the discussion.
 
 ## Instructor's Guide
 
@@ -17,16 +17,16 @@ Here is a suggested student activity that will take about 30 minutes to complete
 
 1. Visit https://dkirkby.github.io/quantum-coin/ on your laptop, tablet, or phone.
 
-This is a simulation of a coin that spins indefinitely (rather than a flipped coin that will eventually come to rest on a surface) using red and blue colors to distinguish between the head and tail sides.
+   This is a simulation of a coin that spins indefinitely (rather than a flipped coin that will eventually come to rest on a surface) using red and blue colors to distinguish between the head and tail sides.
 
-Leave the simulation set to ‘Classical’ and play with its controls until you get a feel for what is going on. Discuss with each other what ‘measurement’ means according to the simulation.
+2. Leave the simulation set to ‘Classical’ and play with its controls until you get a feel for what is going on. Discuss with each other what ‘measurement’ means according to the simulation.
 
-2. Now change the setting to ‘Quantum’. Discuss with each other the differences between the classical and quantum coins and anything you find confusing?
+3. Now change the setting to ‘Quantum’. Discuss with each other the differences between the classical and quantum coins and anything you find confusing?
 
-3. Study the flowchart below which represents the classical coin, then draw an analogous flowchart for the quantum coin on your whiteboard. (Hint: some parts of the flowchart stay the same.)
+4. Study the flowchart below which represents the classical coin, then draw an analogous flowchart for the quantum coin on your whiteboard. (Hint: some parts of the flowchart stay the same.)
 
 ![Classical Coin Flowchart](https://dkirkby.github.io/quantum-coin/img/classical_flow.png)
 
-4. Discuss with each other whether it is possible to make the “spinning” quantum coin spend more time in one state than the other? Could you keep it in one state indefinitely?
+5. Discuss with each other whether it is possible to make the “spinning” quantum coin spend more time in one state than the other? Could you keep it in one state indefinitely?
 
-5. Each quantum measurement generates a green dot: how does the dot’s position determine the outcome of the measurement?
+6. . Each quantum measurement generates a green dot: how does the dot’s position determine the outcome of the measurement?
