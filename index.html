@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Schrödinger's Coin</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-slider.css" rel="stylesheet">
+    <link href="coin.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="page" class="container">
+      <div class="row hidden-xs hidden-sm">
+        <h3 class="col-md-10">Schrödinger's Coin</h3>
+        <div id="pause-button" class="col-md-2 btn btn-default text-muted">pause</div>
+      </div>
+      <div class="row" id="svg-stuff">
+        <div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-6 col-lg-5 fill">
+          <svg id="coin-box" width="100%" max-width="451" viewBox="-1.01 -1.01 2.02 2.02" stroke-width="0.02">
+            <defs>
+                <linearGradient id="coin-fill">
+                    <stop id="coin-fill-left" offset="0%" stop-color="white"/>
+                    <stop id="coin-fill-right" offset="100%" stop-color="black"/>
+                </linearGradient>
+                <radialGradient id="sphere-fill" cx="0.5" cy="0.5" r="0.5" fx="0.65" fy="0.25">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.4"/>
+                    <stop offset="60%" stop-color="#777" stop-opacity="0.0"/>
+                    <stop offset="100%" stop-color="black" stop-opacity="0.3"/>
+                </radialGradient>
+            </defs>
+            <g id="coin">
+                <path id="right-red-behind" d="M 0 -1 A 1 1 0 0 1 0 1"
+                    stroke="none" fill="red" opacity="0.25" visibility="hidden"/>
+                <path id="right-blue-behind" d="M 0 -1 A 1 1 0 0 1 0 1"
+                    stroke="none" fill="blue" opacity="0.25" visibility="hidden"/>
+                <path id="left-red-behind" d="M 0 -1 A 1 1 0 0 0 0 1"
+                    stroke="none" fill="red" opacity="0.25" visibility="hidden"/>
+                <path id="left-blue-behind" d="M 0 -1 A 1 1 0 0 0 0 1"
+                    stroke="none" fill="blue" opacity="0.25" visibility="hidden"/>
+                <line id="edge-on" visibility="hidden"
+                    x1="0" y1="-1" x2="0" y2="1" stroke="black" fill="none"/>
+                <ellipse id="disk" cx="0" cy="0" rx="0.5" ry="1.0" stroke="black"
+                    fill="url(#coin-fill)" visibility="hidden"/>
+                <path id="right-red" d="M 0 -1 A 1 1 0 0 1 0 1" transform="scale(1 1)"
+                    stroke="none" fill="red" opacity="0.25" visibility="hidden"/>
+                <path id="right-blue" d="M 0 -1 A 1 1 0 0 1 0 1" transform="scale(1 1)"
+                    stroke="none" fill="blue" opacity="0.25" visibility="hidden"/>
+                <path id="left-red" d="M 0 -1 A 1 1 0 0 0 0 1" transform="scale(1 1)"
+                    stroke="none" fill="red" opacity="0.25" visibility="hidden"/>
+                <path id="left-blue" d="M 0 -1 A 1 1 0 0 0 0 1" transform="scale(1 1)"
+                stroke="none" fill="blue" opacity="0.25" visibility="hidden"/>
+                <ellipse id="sphere" cx="0" cy="0" rx="1" ry="1" stroke="none"
+                    fill="url(#sphere-fill)" visibility="hidden"/>
+            </g>
+            <!-- use dy=0.1 instead of baseline-alignment, which is less well supported -->
+            <g id="hits"></g>
+        </svg>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-7">
+          <svg id="graph" width="100%"/>
+        </div>
+      </div>
+      <div class="row" id="controls">
+        <div class="cos-xs-12 col-md-6 col-lg-5">
+          <div role="group" class="btn-group btn-group-justified">
+            <div role="group" class="btn-group">
+              <button id="start-button" type="button" class="btn btn-primary">
+                Start
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-7">
+          <div role="group" class="btn-group btn-group-justified">
+            <div role="group" class="btn-group">
+              <button id="measure-button" type="button" class="btn btn-success" disabled="disabled">
+                Measure
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-5">
+          <div role="group" aria-label="Model Selection" class="btn-group btn-group-justified" data-toggle="buttons">
+            <div role="group" class="btn-group">
+              <label class="btn btn-default model-select active">
+                <input type="radio" class="initializer" name="model-select" id="model-classical" value="classical" autocomplete="off" checked disabled="disabled'">
+                Classical
+              </label>
+            </div>
+            <div role="group" class="btn-group">
+              <label class="btn btn-default model-select">
+                <input type="radio" class="initializer" name="model-select" id="model-quantum" value="quantum" autocomplete="off" disabled="disabled">
+                Quantum
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-7">
+          <input id="slider-placeholder" data-slider-id="initial-state-slider" class="initializer" type="text" data-slider-min="0" data-slider-max="179" data-slider-step="1" data-slider-value="45"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-slider.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="coin.js"></script>
+  </body>
+</html>
