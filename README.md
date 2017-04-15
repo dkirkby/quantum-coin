@@ -29,4 +29,4 @@ Here is a suggested student activity that will take about 30 minutes to complete
 
 5. Discuss with each other whether it is possible to make the “spinning” quantum coin spend more time in one state than the other? Could you keep it in one state indefinitely?
 
-6. . Each quantum measurement generates a green dot: how does the dot’s position determine the outcome of the measurement?
+6. Each quantum measurement generates a green dot: how does the dot’s position determine the outcome of the measurement?
