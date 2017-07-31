@@ -15,7 +15,7 @@ This is an open source project, released under an [MIT license](https://dkirkby.
 
 This [worksheet](worksheet.pdf) ([google doc](https://docs.google.com/document/d/1DEWXUu6ZPDZRkrM1HnrpYIPooglALVOK-nNGA__wWOA/edit?usp=sharing)) introduces probabilistic models of classical and quantum coins with simple hands-on activities. Students are then prepared to interact with the simulation, understand the graph, and discover the role of measurement in a quantum system.
 
-This material was initially developed for a 2017 [UC Irvine COSMOS](http://www.cosmos.uci.edu/) guest lecture.  Contact dkirkby@uci.edu for details if you want to try this.
+This material was initially developed for a 2017 [UC Irvine COSMOS](http://www.cosmos.uci.edu/) guest lecture.  Contact dkirkby@uci.edu for details if you want to try this.  Allow about one hour to complete this worksheet.
 
 ### Undergraduate
 
